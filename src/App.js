@@ -13,18 +13,22 @@ const ContainerPrincipal = styled.div`
 const ContainerProdutos = styled.div`
   border: 1px solid black; 
   width: 60%;
-  height: 98vh;
+  /* height: 98vh; */
 `
 const ContainerCarrinho = styled.div`
   border: 1px solid black; 
   width: 20%;
-  height: 98vh;
+  /* height: 98vh; */
 `
 const ContainerFiltro = styled.div`
   border: 1px solid black; 
   width: 20%;
-  height: 98vh;
+  /* height: 98vh; */
 `
+// state = {
+
+// }
+
 
 export default class App extends React.Component {
   render () {

@@ -19,10 +19,11 @@ export default class Card extends React.Component {
                 {this.props.nome}
                 </p>
                 <p>
+                R$: 
                 {this.props.preco}
                 </p>
                 <button>
-                    Adicionar
+                    Adicionar ao carrinho
                 </button>
                 
             </ContainerCard>
