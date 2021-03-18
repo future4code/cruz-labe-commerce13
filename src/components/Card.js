@@ -11,6 +11,9 @@ padding: 5px;
 `
 
 export default class Card extends React.Component {
+
+    
+
     render () {
         return(
             <ContainerCard>
@@ -22,7 +25,7 @@ export default class Card extends React.Component {
                 R$: 
                 {this.props.preco}
                 </p>
-                <button>
+                <button onClick={this.props.aoAdicionar}>
                     Adicionar ao carrinho
                 </button>
                 

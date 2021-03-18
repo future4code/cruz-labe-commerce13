@@ -25,13 +25,14 @@ const ContainerFiltro = styled.div`
   width: 20%;
   /* height: 98vh; */
 `
-// state = {
-
-// }
 
 
 export default class App extends React.Component {
+
+  
   render () {
+
+
     return (
       <ContainerPrincipal>
 
