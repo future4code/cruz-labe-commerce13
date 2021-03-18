@@ -4,6 +4,8 @@ import Carrinho from './components/Carrinho';
 import Filtro from './components/Filtro';
 import Home from './components/Home';
 import Card from './components/Card';
+import {produtos} from './components/dados/produtos'
+
 
 
 const ContainerPrincipal = styled.div`
@@ -26,7 +28,6 @@ const ContainerFiltro = styled.div`
   /* height: 98vh; */
 `
 
-
 export default class App extends React.Component {
 
   
@@ -41,7 +42,7 @@ export default class App extends React.Component {
         </ContainerFiltro>
 
         <ContainerProdutos>
-          <Home/>
+          <Home produtos={produtos} coisinha={"bananainha"}/>
         </ContainerProdutos>
 
         <ContainerCarrinho>
