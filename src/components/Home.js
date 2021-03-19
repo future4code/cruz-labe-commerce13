@@ -26,36 +26,45 @@ align-items: center;
 
 export default class Home extends React.Component {
 
-    state = {
-        carrinho: []
-    }
+    // state = {
+    //     carrinho: [],
+    //     filtroMax: "",
+    //     filtroMin: ""
+    // }
+    
 
     
         
-     addCarrinho = (id) => {
-        // console.log(id)
-        const adicionado = this.props.produtos.filter((produto) => {
-                return produto.id === id
-        })
-        const novoObjeto = [...this.state.carrinho, adicionado]
-        this.setState({ carrinho: novoObjeto })
-         console.log(novoObjeto)
-    }
+    //  addCarrinho = (id) => {
+    //     // console.log(id)
+    //     const adicionado = this.props.produtos.filter((produto) => {
+    //             return produto.id === id
+    //     })
+    //     const novoObjeto = [...this.state.carrinho, adicionado]
+    //     this.setState({ carrinho: novoObjeto })
+    //      console.log("AQUI" , novoObjeto)
+    // }        
+
 
  
  
     render () {
         // console.table(this.props.produtos)
         // console.log(this.props.coisinha)
+        const produtos = this.props.produtos
+        // console.log(produtos)
 
-        const listaProdutos = this.props.produtos.map((item) => {
+        const renderizaNaTela = produtos.map((item) => {
             return (
                 
                 <Card
+                key={item.id}
+                id={item.id}
+                venhoDoCard={this.props.addCarrinho}
                 imagem={item.foto}
                 nome={item.nome}
                 preco={item.valor}
-                aoAdicionar={ () => this.addCarrinho(item.id)}
+                
                 />
             )
         })
@@ -63,7 +72,8 @@ export default class Home extends React.Component {
 
         return(
             <ContainerHome>
-
+               
+            
                 <ContainerSelect>
                     <p>Quantidade de produtos:</p>
                     <ContainerSpan>
@@ -75,7 +85,7 @@ export default class Home extends React.Component {
                     </ContainerSpan>
                 </ContainerSelect>
 
-                {listaProdutos}
+                {renderizaNaTela}
 
             </ContainerHome>
         )

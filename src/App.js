@@ -4,7 +4,7 @@ import Carrinho from './components/Carrinho';
 import Filtro from './components/Filtro';
 import Home from './components/Home';
 import Card from './components/Card';
-import {produtos} from './components/dados/produtos'
+import {listaDeprodutos} from './components/dados/listaDeprodutos'
 
 
 
@@ -30,23 +30,69 @@ const ContainerFiltro = styled.div`
 
 export default class App extends React.Component {
 
+  state = {
+    carrinho: [],
+    filtroMax: "",
+    filtroMin: "",
+    buscaNome: ""
+}
+
+  onChangeFiltroMax = (event) => {
+    this.setState({filtroMax: event.target.value})
+  }
+
+  onChangeFiltroMin = (event) => {
+    this.setState({filtroMin: event.target.value})
+    console.log(this.state.filtroMin)
+  }
+
+  onChangeBuscaNome = (event) => {
+    this.setState({buscaNome: event.target.value})
+    console.log(this.state.buscaNome)
+  }
+
+
+   
+  addCarrinho = (id) => {
+    const adicionado = listaDeprodutos.find((produto) => {
+            return id === produto.id
+    })
+
+    if(adicionado.quantidade){
+      adicionado.quantidade += 1
+    } else {
+      adicionado.quantidade = 1
+    }
+
+    const novoObjeto = [...this.state.carrinho, adicionado]
+    this.setState({ carrinho: novoObjeto })
+     console.log("AQUI" , novoObjeto) 
+}
+
+
   
   render () {
-
+    
 
     return (
       <ContainerPrincipal>
 
         <ContainerFiltro>
-          <Filtro/>
+          <Filtro 
+          onChangeFiltroMax={this.onChangeFiltroMax} 
+          onChangeFiltroMin={this.onChangeFiltroMin}
+          onChangeBuscaNome={this.onChangeBuscaNome}
+          filtroMax={this.state.filtroMax}
+          filtroMin={this.state.filtroMin}
+          buscaNome={this.state.buscaNome}/>
         </ContainerFiltro>
 
         <ContainerProdutos>
-          <Home produtos={produtos} coisinha={"bananainha"}/>
+          <Home produtos={listaDeprodutos} addCarrinho={this.addCarrinho} coisinha={"bananainha"}/>
         </ContainerProdutos>
 
         <ContainerCarrinho>
-        <Carrinho/>
+        <Carrinho carrinho={this.state.carrinho}/>
         </ContainerCarrinho>
         
       </ContainerPrincipal>

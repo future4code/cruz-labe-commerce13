@@ -13,13 +13,21 @@ export default class Carrinho extends React.Component {
      
 
     render () {
-        console.log(this.props.listaProdutos)
+
+        const products = this.props.carrinho
+        const renderizaCarrinho = products.map((item) => {
+            return (
+                <p>{item.nome} - R$ {item.valor},00 -  {item.quantidade}x</p>
+            )
+        })
+
+
         return(
             <ContainerCarrinho>
                 <h3>Carrinho:</h3>
+               
+            {renderizaCarrinho}
 
-            
-            
                 
                 <p>Valor total:</p>
             </ContainerCarrinho>
