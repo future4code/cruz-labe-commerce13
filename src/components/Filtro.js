@@ -13,17 +13,21 @@ margin-bottom: 10px;
 
 export default class Filtro extends React.Component {
     render () {
+
+        
+
+
         return(
             <ContainerInputsFiltro>
                 <h3>Filtros</h3>
                 <label for="Valminimo">Valor mínimo:</label>
-                <Inputs type="number" id="Valminimo"></Inputs>
+                <Inputs onChange={this.props.onChangeFiltroMin} value={this.props.filtroMin} type="number" id="Valminimo"></Inputs>
 
                 <label for="Valmaximo">Valor máximo:</label>
-                <Inputs type="number" id="Valmaximo"></Inputs>
+                <Inputs onChange={this.props.onChangeFiltroMax} value={this.props.filtroMax} type="number" id="Valmaximo"></Inputs>
 
                 <label for="Buscanome">Busca por nome:</label>
-                <Inputs id="Buscanome"></Inputs>
+                <Inputs onChange={this.props.onChangeBuscaNome} value={this.props.buscaNome} id="Buscanome"></Inputs>
             </ContainerInputsFiltro>
         )
     }

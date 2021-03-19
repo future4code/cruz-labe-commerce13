@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 
 
+
 const ContainerCard = styled.div`
 display: flex;
 border: 1px solid black;
@@ -15,6 +16,7 @@ export default class Card extends React.Component {
     
 
     render () {
+        
         return(
             <ContainerCard>
                 <img src={this.props.imagem}/>
@@ -25,7 +27,8 @@ export default class Card extends React.Component {
                 R$: 
                 {this.props.preco}
                 </p>
-                <button onClick={this.props.aoAdicionar}>
+                {/* <button onClick={() => this.props.aoAdicionar(this.props.id)}></button> */}
+                <button onClick={() => this.props.venhoDoCard(this.props.id)}>
                     Adicionar ao carrinho
                 </button>
                 
